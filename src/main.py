@@ -8,7 +8,7 @@ from gpiozero import Button
 # Change this if you use a different add-on or HAT
 PROGRAMMABLE_PIN = 17
 index = 0
-volumes = [0.25, 0.5, 0.75, 1, 5, 0]
+volumes = [0.5, 0.75, 1]
 
 def cycle_volume():
     global index
@@ -24,12 +24,8 @@ pygame.mixer.music.load(audio_file)
 pygame.mixer.music.set_volume(volumes[index])
 pygame.mixer.music.play(loops = -1)
 
+
 while pygame.mixer.music.get_busy() == True:
-    while True:
-        button.when_released = cycle_volume
-
-        pygame.mixer.music.set_volume(volumes[index % len(volumes)])
-
+    button.when_released = cycle_volume
+    pygame.mixer.music.set_volume(volumes[index % len(volumes)])
     continue
-
-
