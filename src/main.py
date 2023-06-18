@@ -8,7 +8,7 @@ from gpiozero import Button
 # Change this if you use a different add-on or HAT
 PROGRAMMABLE_PIN = 17
 index = 0
-volumes = [0.5, 0.75, 1]
+volumes = [0.3, 0.5, 0.75, 1]
 
 def cycle_volume():
     global index
